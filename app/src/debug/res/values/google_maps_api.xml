@@ -1,0 +1,24 @@
+<resources>
+    <!--
+    TODO: Before you run your application, you need a Google Maps API key.
+
+    To get one, follow this link, follow the directions and press "Create" at the end:
+
+    https://console.developers.google.com/flows/enableapi?apiid=maps_android_backend&keyType=CLIENT_SIDE_ANDROID&r=E2:75:8F:D0:35:68:39:7F:A2:8E:1F:89:BD:8D:BE:3D:AC:4F:B0:3B%3Bcom.zakia.idn.ojolapp.maps
+
+    You can also add your credentials to an existing key, using these values:
+
+    Package name:
+    com.zakia.idn.ojolapp.maps
+
+    SHA-1 certificate fingerprint:
+    E2:75:8F:D0:35:68:39:7F:A2:8E:1F:89:BD:8D:BE:3D:AC:4F:B0:3B
+
+    Alternatively, follow the directions here:
+    https://developers.google.com/maps/documentation/android/start#get-key
+
+    Once you have your key (it starts with "AIza"), replace the "google_maps_key"
+    string in this file.
+    -->
+    <string name="google_maps_key" templateMergeStrategy="preserve" translatable="false">YOUR_KEY_HERE</string>
+</resources>
