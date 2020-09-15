@@ -1,22 +1,133 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".ui.notifications.NotificationsFragment">
 
+    <FrameLayout
+        android:id="@+id/frame"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_200dp"
+        android:background="@color/colorPrimary">
+
+        <ImageView
+            android:id="@+id/iv_profile_image"
+            android:layout_width="@dimen/_100dp"
+            android:layout_height="@dimen/_100dp"
+            android:layout_gravity="center|bottom"
+            android:scaleType="fitXY"
+            android:src="@drawable/user" />
+
+    </FrameLayout>
+
     <TextView
-        android:id="@+id/text_notifications"
+        android:id="@+id/tv_fullname"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:textAlignment="center"
-        android:textSize="20sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-</androidx.constraintlayout.widget.ConstraintLayout>
+        android:layout_below="@id/frame"
+        android:layout_marginStart="@dimen/_40dp"
+        android:layout_marginLeft="@dimen/_40dp"
+        android:layout_marginTop="@dimen/_20dp"
+        android:text="@string/nama_"
+        android:textColor="@android:color/black" />
+
+    <TextView
+        android:id="@+id/tv_profile_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tv_fullname"
+        android:layout_marginStart="@dimen/_40dp"
+        android:layout_marginLeft="@dimen/_40dp"
+        android:text="@string/dean" />
+
+    <View
+        android:id="@+id/view1"
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:layout_below="@id/tv_profile_name"
+        android:layout_marginStart="@dimen/_40dp"
+        android:layout_marginLeft="@dimen/_40dp"
+        android:layout_marginTop="@dimen/_10dp"
+        android:layout_marginEnd="@dimen/_5dp"
+        android:layout_marginRight="@dimen/_5dp"
+        android:background="@android:color/darker_gray" />
+
+    <TextView
+        android:id="@+id/tv_fullemail"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/view1"
+        android:layout_marginStart="@dimen/_40dp"
+        android:layout_marginLeft="@dimen/_40dp"
+        android:layout_marginTop="@dimen/_20dp"
+        android:text="@string/email_"
+        android:textColor="@android:color/black" />
+
+    <TextView
+        android:id="@+id/tv_profile_email"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tv_fullemail"
+        android:layout_marginStart="@dimen/_40dp"
+        android:layout_marginLeft="@dimen/_40dp"
+        android:text="@string/email_anda" />
+
+    <View
+        android:id="@+id/view2"
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:layout_below="@id/tv_profile_email"
+        android:layout_marginStart="@dimen/_40dp"
+        android:layout_marginLeft="@dimen/_40dp"
+        android:layout_marginTop="@dimen/_10dp"
+        android:layout_marginEnd="@dimen/_5dp"
+        android:layout_marginRight="@dimen/_5dp"
+        android:background="@android:color/darker_gray" />
+
+    <TextView
+        android:id="@+id/tv_fullhp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/view2"
+        android:layout_marginStart="@dimen/_40dp"
+        android:layout_marginLeft="@dimen/_40dp"
+        android:layout_marginTop="@dimen/_20dp"
+        android:text="@string/notelp_"
+        android:textColor="@android:color/black" />
+
+    <TextView
+        android:id="@+id/tv_profile_hp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tv_fullhp"
+        android:layout_marginStart="@dimen/_40dp"
+        android:layout_marginLeft="@dimen/_40dp"
+        android:text="@string/no_hp" />
+
+    <View
+        android:id="@+id/view3"
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:layout_below="@id/tv_profile_hp"
+        android:layout_marginStart="@dimen/_40dp"
+        android:layout_marginLeft="@dimen/_40dp"
+        android:layout_marginTop="@dimen/_10dp"
+        android:layout_marginEnd="@dimen/_5dp"
+        android:layout_marginRight="@dimen/_5dp"
+        android:background="@android:color/darker_gray" />
+
+    <Button
+        android:id="@+id/btn_profile_signout"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_40dp"
+        android:layout_below="@id/view3"
+        android:layout_marginLeft="@dimen/_40dp"
+        android:layout_marginTop="@dimen/_20dp"
+        android:layout_marginRight="@dimen/_40dp"
+        android:background="@color/colorPrimary"
+        android:text="@string/sign_out"
+        android:textAllCaps="false"
+        android:textColor="@android:color/white" />
+</RelativeLayout>
