@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorPrimary"
+    tools:context=".activity.LoginActivity">
+
+    <EditText
+        android:id="@+id/et_login_email"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_45dp"
+        android:gravity="center"
+        android:hint="@string/email"
+        android:layout_marginTop="@dimen/_140dp"
+        android:layout_marginLeft="@dimen/_30dp"
+        android:layout_marginRight="@dimen/_30dp"
+        android:textSize="@dimen/_18sp"
+        android:background="@drawable/background"/>
+
+    <EditText
+        android:id="@+id/et_login_password"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_45dp"
+        android:gravity="center"
+        android:hint="@string/password"
+        android:layout_marginTop="@dimen/_10dp"
+        android:layout_marginLeft="@dimen/_30dp"
+        android:layout_marginRight="@dimen/_30dp"
+        android:textSize="@dimen/_18sp"
+        android:background="@drawable/background"
+        android:layout_below="@id/et_login_email"/>
+
+    <Button
+        android:id="@+id/btn_login"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_45dp"
+        android:layout_marginRight="@dimen/_30dp"
+        android:layout_marginLeft="@dimen/_30dp"
+        android:layout_marginTop="@dimen/_20dp"
+        android:text="@string/login"
+        android:background="@drawable/background2"
+        android:textColor="@color/white"
+        android:layout_below="@id/et_login_password"/>
+
+    <TextView
+        android:id="@+id/tv_signup_link"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/dont_have_account_sign_up"
+        android:gravity="center"
+        android:textColor="@color/white"
+        android:layout_below="@id/btn_login"
+        android:layout_marginTop="@dimen/_10dp"
+        android:layout_marginLeft="@dimen/_30dp"
+        android:layout_marginRight="@dimen/_30dp"/>
+
+    <TextView
+        android:id="@+id/tv_or"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/or"
+        android:gravity="center"
+        android:textSize="@dimen/_20sp"
+        android:layout_marginTop="@dimen/_20dp"
+        android:layout_marginRight="@dimen/_30dp"
+        android:layout_marginLeft="@dimen/_30dp"
+        android:layout_below="@id/tv_signup_link"/>
+
+    <Button
+        android:id="@+id/btn_signup_gmail"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_45dp"
+        android:text="@string/signup_with_google"
+        android:background="@drawable/background2"
+        android:textColor="@color/white"
+        android:layout_marginTop="@dimen/_20dp"
+        android:layout_marginRight="@dimen/_30dp"
+        android:layout_marginLeft="@dimen/_30dp"
+        android:layout_below="@id/tv_or"/>
+
+</RelativeLayout>
