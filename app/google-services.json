@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "606909786249",
+    "firebase_url": "https://ojolapp-3123b.firebaseio.com",
+    "project_id": "ojolapp-3123b",
+    "storage_bucket": "ojolapp-3123b.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:606909786249:android:482031d65520de6de7be58",
+        "android_client_info": {
+          "package_name": "com.zakia.idn.ojolapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "606909786249-qhu9ul5pt98vla9rqg2h1ap91oa0a0i6.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.zakia.idn.ojolapp",
+            "certificate_hash": "e2758fd03568397fa28e1f89bd8dbe3dac4fb03b"
+          }
+        },
+        {
+          "client_id": "606909786249-g7kpronrknib0d3mqo1g23kobqpjptsg.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB3iG5_6RgSDGOtc0tKx1UUuNe5HKH0Q18"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "606909786249-g7kpronrknib0d3mqo1g23kobqpjptsg.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
