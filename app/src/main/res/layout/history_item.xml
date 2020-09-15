@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/tv_item_tanggal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="right"
+        android:padding="@dimen/_10dp"
+        android:text="@string/cileungsi_bogor" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="9">
+
+            <ImageView
+                android:id="@+id/img_dot1"
+                android:layout_width="@dimen/_20dp"
+                android:layout_height="@dimen/_20dp"
+                android:layout_centerHorizontal="true"
+                android:layout_marginBottom="@dimen/_40dp"
+                android:src="@drawable/dot" />
+
+            <ImageView
+                android:id="@+id/img_dot2"
+                android:layout_width="@dimen/_20dp"
+                android:layout_height="@dimen/_20dp"
+                android:layout_below="@id/img_dot1"
+                android:layout_centerHorizontal="true"
+                android:layout_marginBottom="@dimen/_40dp"
+                android:src="@drawable/placeholder" />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1">
+
+            <TextView
+                android:id="@+id/tv_item_awal"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_60dp"
+                android:layout_marginStart="@dimen/_10dp"
+                android:layout_marginLeft="@dimen/_10dp"
+                android:lines="2"
+                android:text="@string/cileungsi_bogor" />
+
+            <TextView
+                android:id="@+id/tv_item_tujuan"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/tv_item_awal"
+                android:layout_marginStart="@dimen/_10dp"
+                android:layout_marginLeft="@dimen/_10dp"
+                android:lines="2"
+                android:text="@string/cileungsi_bogor" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="0.1dp"
+                android:layout_alignParentBottom="true"
+                android:background="@android:color/darker_gray" />
+
+        </RelativeLayout>
+
+    </LinearLayout>
+
+</LinearLayout>
