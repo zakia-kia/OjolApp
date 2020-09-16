@@ -40,6 +40,8 @@ import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
 import com.zakia.idn.ojolapp.R
 import com.zakia.idn.ojolapp.activity.WaitingDriverActivity
+import com.zakia.idn.ojolapp.data.ResultRoute
+import com.zakia.idn.ojolapp.data.RoutesItem
 import com.zakia.idn.ojolapp.model.Booking
 import com.zakia.idn.ojolapp.network.NetworkModule
 import com.zakia.idn.ojolapp.network.RequestNotification
@@ -191,7 +193,7 @@ class HomeFragment : Fragment() , OnMapReadyCallback {
         keyy = database.reference.push().key
         val k = keyy
 
-//        pushNotif(booking)
+        pushNotif(booking)
         k?.let { bookingHistoryUser(it) }
 
         myRef.child(keyy ?: "").setValue(booking)
@@ -199,44 +201,44 @@ class HomeFragment : Fragment() , OnMapReadyCallback {
         return true
     }
 
-//    private fun pushNotif(booking: Booking) {
-//        val database = FirebaseDatabase.getInstance()
-//        val myRef = database.getReference("Driver")
-//        myRef.addValueEventListener(object : ValueEventListener {
-//            override fun onCancelled(error: DatabaseError) {
-//                TODO("Not yet implemented")
-//            }
-//
-////            override fun onDataChange(snapshot: DataSnapshot) {
-////                for (issue in snapshot.children) {
-////                    val token = issue.child("token").getValue(String::class.java)
-////
-////                    println(token.toString())
-////                    val request = RequestNotification()
-////                    request.token = token
-////                    request.sendNotificationModel = booking
-////
-////                    NetworkModule.getServiceFcm().sendChatNotification(request)
-////                        .enqueue(object : Callback<ResponseBody> {
-////                            override fun onFailure(call: Call<ResponseBody>, t: Throwable) {
-////
-////                                Log.d("network failed :", t.message.toString())
-////                            }
-////
-////                            override fun onResponse(
-////                                call: Call<ResponseBody>,
-////                                response: Response<ResponseBody>
-////                            ) {
-////                                response.body()
-////                                Log.d("response server", response.message())
-////                            }
-////
-////                        })
-////                }
-////            }
-//
-//        })
-//    }
+    private fun pushNotif(booking: Booking) {
+        val database = FirebaseDatabase.getInstance()
+        val myRef = database.getReference("Driver")
+        myRef.addValueEventListener(object : ValueEventListener {
+            override fun onCancelled(error: DatabaseError) {
+                TODO("Not yet implemented")
+            }
+
+            override fun onDataChange(snapshot: DataSnapshot) {
+                for (issue in snapshot.children) {
+                    val token = issue.child("token").getValue(String::class.java)
+
+                    println(token.toString())
+                    val request = RequestNotification()
+                    request.token = token
+                    request.sendNotificationModel = booking
+
+                    NetworkModule.getServiceFcm().sendChatNotification(request)
+                        .enqueue(object : Callback<ResponseBody> {
+                            override fun onFailure(call: Call<ResponseBody>, t: Throwable) {
+
+                                Log.d("network failed :", t.message.toString())
+                            }
+
+                            override fun onResponse(
+                                call: Call<ResponseBody>,
+                                response: Response<ResponseBody>
+                            ) {
+                                response.body()
+                                Log.d("response server", response.message())
+                            }
+
+                        })
+                }
+            }
+
+        })
+    }
 
     private fun showDialog(status: Boolean) {
         dialog = this!!.activity?.let { Dialog(it) }
@@ -364,7 +366,7 @@ class HomeFragment : Fragment() , OnMapReadyCallback {
                 tv_home_tujuan.text = place?.address.toString()
                 showMarker(latAkhir ?: 0.0, lonAwal ?: 0.0, place?.address.toString())
 
-//                route()
+                route()
                 Log.i("location", "place" + place?.name)
             } else if (resultCode == AutocompleteActivity.RESULT_ERROR) {
                 val status = data?.let { Autocomplete.getStatusFromIntent(it) }
@@ -376,42 +378,42 @@ class HomeFragment : Fragment() , OnMapReadyCallback {
         }
     }
 
-//    @SuppressLint("CheckResult")
-//    private fun route() {
-//        val origin = latAwal.toString() + "," + lonAwal.toString()
-//        val dest = latAkhir.toString() + "," + lonAkhir.toString()
-//
-//        NetworkModule.getService().actionRoute(origin, dest, Constan.API_KEY)
-//            .observeOn(AndroidSchedulers.mainThread())
-//            .subscribeOn(Schedulers.io())
-//            .subscribe({ t: ResultRoute? ->
-//                showData(t?.routes)
-//            }, {})
-//    }
-//
-//    private fun showData(routes: List<RoutesItem?>?) {
-//        visibleView(true)
-//
-//        if (routes != null) {
-//            val point = routes[0]?.overviewPolyline?.points
-//            jarak = routes[0]?.legs?.get(0)?.distance?.text
-//            val jarakValue = routes[0]?.legs?.get(0)?.distance?.value
-//            val waktu = routes[0]?.legs?.get(0)?.duration?.text
-//
-//            tv_home_waktu_distance.text = waktu + "(" + jarak + ")"
-//            val pricex = jarakValue?.toDouble()?.let { Math.round(it) }
-//            val price = pricex?.div(1000.0)?.times(2000.0)
-//            val price2 = ChangeFormat.toRupiahFormat2(price.toString())
-//
-//            tv_home_price.text = "Rp, " + price2
-//            DirectionMapsV2.gambarRoute(map!!, point!!)
-//
-//        } else {
-//            alert {
-//                message = "data route null"
-//            }.show()
-//        }
-//    }
+    @SuppressLint("CheckResult")
+    private fun route() {
+        val origin = latAwal.toString() + "," + lonAwal.toString()
+        val dest = latAkhir.toString() + "," + lonAkhir.toString()
+
+        NetworkModule.getService().actionRoute(origin, dest, Constan.API_KEY)
+            .observeOn(AndroidSchedulers.mainThread())
+            .subscribeOn(Schedulers.io())
+            .subscribe({ t: ResultRoute? ->
+                showData(t?.routes)
+            }, {})
+    }
+
+    private fun showData(routes: List<RoutesItem?>?) {
+        visibleView(true)
+
+        if (routes != null) {
+            val point = routes[0]?.overviewPolyline?.points
+            jarak = routes[0]?.legs?.get(0)?.distance?.text
+            val jarakValue = routes[0]?.legs?.get(0)?.distance?.value
+            val waktu = routes[0]?.legs?.get(0)?.duration?.text
+
+            tv_home_waktu_distance.text = waktu + "(" + jarak + ")"
+            val pricex = jarakValue?.toDouble()?.let { Math.round(it) }
+            val price = pricex?.div(1000.0)?.times(2000.0)
+            val price2 = ChangeFormat.toRupiahFormat2(price.toString())
+
+            tv_home_price.text = "Rp, " + price2
+            DirectionMapsV2.gambarRoute(map!!, point!!)
+
+        } else {
+            alert {
+                message = "data route null"
+            }.show()
+        }
+    }
 
     //geocorder
     private fun showName(lat: Double, lon: Double): String? {
